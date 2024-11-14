@@ -13,8 +13,8 @@ Before you start, you need to make sure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/PheloMacanda/react-test-avamae.git
+   cd react-test-avamae
    ```
 
 2. **Install dependencies**
