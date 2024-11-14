@@ -1,0 +1,33 @@
+.login-section {
+    background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../../../../assets//images/shutterstock_1302552622.jpg');
+    background-size: cover;
+    color: white;
+    padding: 50px;
+    display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .login-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    max-width: 400px;
+    text-align: left;
+    border-radius: 8px;
+  }
+  
+  .login-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
