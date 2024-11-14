@@ -1,0 +1,25 @@
+.content-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.content-text-large {
+    font-weight: 500;
+}
+
+.content-text {
+    width: 40%;
+    text-align: left;
+    margin-left: 40px;
+}
+
+.list-item-text {
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.content-image {
+
+}

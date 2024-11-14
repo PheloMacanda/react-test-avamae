@@ -1,3 +1,22 @@
-.container {
-    flex-direction: row;
+.button-container {
+    align-items: center;
+    justify-items: center;
+    background-color: #e1ebf6;
+    color: #006bd6;
+    border: none;
+    border-radius: 4px;
+}
+
+.button-container-secondary {
+    align-items: center;
+    justify-items: center;
+    background-color: #006bd6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.button-text {
+    font-size: 12px;
+    font-weight: 600;
 }
