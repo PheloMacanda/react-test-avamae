@@ -3,10 +3,10 @@ import OfficeImage from '../../../../assets/images/shutterstock_696636415.jpg';
 import './ContentSection.css';
 import { Button } from '../../../../components/Button/Button';
 
-const ContentSection: FC = () => {
+export const ContentSection: FC = () => {
     return (
-        <section className='content-section'>
-            <div className='content-text'>
+        <section className='content_section'>
+            <div className='content_text'>
                 <h2 className='content-text-large'>Justo petentium te vix, scripta regione urbanitas</h2>
                 <p>
                     Populo facilisi nam no, dolor deleniti deseruisse ne cum, nam quodsi
@@ -39,10 +39,9 @@ const ContentSection: FC = () => {
                     src={OfficeImage}
                     width={400}
                     height={310}
+                    alt='in office'
                 />
             </div>
         </section>
     )
 };
-
-export default ContentSection;

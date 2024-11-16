@@ -1,5 +1,34 @@
+@font-face {
+  font-family: 'HindSiliguri Regular';
+  src: url('./font/HindSiliguri-Regular.ttf') format('truetype');
+}
+
 .App {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --header-height: 2.5rem;
+  --primary-color: #006bd6;
+  --button-primary: #4184bc;
+  --text-color: #000000;
+  --background-color: #ffffff;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'HindSiliguri Regular';
+}
+
+ul {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }

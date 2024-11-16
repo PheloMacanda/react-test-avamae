@@ -1,6 +1,6 @@
 import './ParagraphsSection.css';
 
-const ParagraphsSection = () => {
+export const ParagraphsSection = () => {
     return (
         <div className="content-section">
             <h1>Sed libero justo, lobortis sit amet suscipit non</h1>
@@ -54,5 +54,3 @@ const ParagraphsSection = () => {
         </div>
     )
 };
-
-export default ParagraphsSection;

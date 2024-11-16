@@ -1,7 +1,7 @@
 import { Button } from '../../../../components/Button/Button';
 import './LoginSection.css';
 
-const LoginSection = () => {
+export const LoginSection = () => {
     return (
         <div className="login-section">
             <div className="login-box">
@@ -22,5 +22,3 @@ const LoginSection = () => {
         </div>
     )
 };
-
-export default LoginSection;

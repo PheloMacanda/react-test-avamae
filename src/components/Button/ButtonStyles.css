@@ -2,18 +2,32 @@
     align-items: center;
     justify-items: center;
     background-color: #e1ebf6;
-    color: #006bd6;
+    color: var(--button-primary);
     border: none;
     border-radius: 4px;
+    padding: 0.2rem 2rem 0.2rem 2rem;
+}
+
+.button-container:hover {
+    cursor: pointer;
+    background-color: var(--button-primary);
+    color: #ffffff;
 }
 
 .button-container-secondary {
     align-items: center;
     justify-items: center;
-    background-color: #006bd6;
+    background-color: var(--button-primary);
     color: white;
     border: none;
     border-radius: 4px;
+    padding: 0.2rem 2rem 0.2rem 2rem;
+}
+
+.button-container-secondary:hover {
+    cursor: pointer;
+    background-color: white;
+    color: var(--button-primary);
 }
 
 .button-text {

@@ -1,0 +1,10 @@
+.swiper_item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 170px 0 170px 50px;
+    color: white;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0.5, 0)), no-repeat center/cover;
+    background-position-y: top;
+}
