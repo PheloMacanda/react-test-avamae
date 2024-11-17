@@ -45,6 +45,7 @@ export const HeroSection = () => {
             centerSlidePercentage={50}
             showArrows={false}
             showStatus={false}
+            swipeable
         >
             {data?.Details.map((swiperItem, index) => (
                 <SwiperItem

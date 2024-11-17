@@ -1,0 +1,153 @@
+.outer-container {
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 0 1rem 1rem;
+}
+
+.contact-form-container {
+    max-width: 90%;
+    margin: 20px 20px 0 0;
+    padding: 0 20px 20px 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.contact-form-container h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.contact-description {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.group-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--input-color);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.add-phone-button {
+    display: block;
+    background-color: var(--button-secondary);
+    color: var(--button-primary);
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-phone-button:hover {
+    background-color: var(--button-primary);
+    color: #ffffff;
+}
+
+.optional {
+    font-style: italic;
+    color: #999;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-group label {
+    padding-top: 0.4rem;
+}
+
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--button-primary);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-image {
+    display: flex;
+    position: relative;
+    z-index: -1;
+}
+
+.contact-image img {
+    margin: auto;
+}
+
+.submit-button .submit-icon {
+    margin-right: 5px;
+}
+
+.submit-button:hover {
+    background-color: var(--button-primary);
+}
+
+@media screen and (max-width: 920px) {
+
+    .outer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-container {
+        max-width: 600px;
+    }
+
+    .group-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-image img {
+        display: none;
+    }
+}

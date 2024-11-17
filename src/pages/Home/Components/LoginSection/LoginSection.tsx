@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button } from '../../../../components/Button/Button';
 import './LoginSection.css';
 
@@ -14,10 +15,12 @@ export const LoginSection = () => {
                     Quisque iaculis hendrerit ex et tincidunt. Aenean eu magna ut nisi placerat
                     fringilla in sed diam.
                 </p>
-                <Button 
-                    title='Log in'
-                    variant='primary'
-                />
+                <Link to='/login'>
+                    <Button
+                        title='Log in'
+                        variant='primary'
+                    />
+                </Link>
             </div>
         </div>
     )

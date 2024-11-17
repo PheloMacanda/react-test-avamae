@@ -13,11 +13,12 @@
     align-items: center;
     float: right;
     margin-right: 15px;
+    color: var(--text-gray);
 }
 
 .footer-row a {
     text-decoration: underline;
-    color: black;
+    color: var(--text-gray);
     padding-left: 2px;
 }
 

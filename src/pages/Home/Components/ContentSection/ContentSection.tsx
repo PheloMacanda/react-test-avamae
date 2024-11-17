@@ -2,6 +2,7 @@ import { FC } from 'react';
 import OfficeImage from '../../../../assets/images/shutterstock_696636415.jpg';
 import './ContentSection.css';
 import { Button } from '../../../../components/Button/Button';
+import { Link } from 'react-router-dom';
 
 export const ContentSection: FC = () => {
     return (
@@ -29,12 +30,16 @@ export const ContentSection: FC = () => {
                         <p className='list-item-text'>Ut indoctum patrioque voluptaria duo, ut vis semper abhorreant</p>
                     </li>
                 </ul>
-                <Button 
-                    title='Learn more'
-                    variant='secondary'
-                />
+                <div className='content_button'>
+                    <Link to='/about'>
+                        <Button
+                            title='Learn more'
+                            variant='secondary'
+                        />
+                    </Link>
+                </div>
             </div>
-            <div className='content-image'>
+            <div className='content_image'>
                 <img
                     src={OfficeImage}
                     width={400}

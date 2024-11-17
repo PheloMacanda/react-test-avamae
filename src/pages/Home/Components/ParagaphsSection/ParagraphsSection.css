@@ -5,39 +5,55 @@
 .content-section h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .content-section h3 {
     color: #777;
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .columns {
     display: flex;
     gap: 20px;
     justify-content: center;
+    width: 100%;
 }
 
 .column {
-    max-width: 600px;
+    max-width: 350px;
+    align-items: center;
     text-align: left;
 }
 
 .column p {
+    font-size: 12px;
+}
 
+.bold-text {
+    font-weight: 600;
 }
 
 .contact-button {
-    margin-top: 20px;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    display: flex;
+    width: 100%;
+    padding-top: 2rem;
+    text-align: center;
+    justify-content: center;
 }
 
-.contact-button:hover {
-    background-color: #0056b3;
+@media screen and (max-width: 920px) {
+    .columns {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact-button button {
+        width: 100%;
+    }
 }

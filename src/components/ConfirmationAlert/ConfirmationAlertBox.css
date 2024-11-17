@@ -1,0 +1,34 @@
+.alert-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--background-green);
+    margin: 1.5rem 0 0 0;
+}
+
+.alert-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: var(--confirmation-green);
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.alert-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.alert-subTitle {
+    font-size: 0.9rem;
+    margin: 5px 0 0;
+    text-align: center;
+}

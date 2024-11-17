@@ -13,10 +13,16 @@
   --header-height: 2.5rem;
   --primary-color: #006bd6;
   --button-primary: #4184bc;
+  --button-secondary: #e1ebf6;
+  --confirmation-green: #8dcc3e;
+  --background-green: #ebf4dc;
+  --border-green: #d4dcc4;
+  --text-gray: #c0c0c0;
   --text-color: #000000;
   --background-color: #ffffff;
   --z-tooltip: 10;
   --z-fixed: 100;
+  --input-color: #f5f4fa;
 }
 
 body {

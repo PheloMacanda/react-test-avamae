@@ -1,7 +1,7 @@
 .button-container {
     align-items: center;
     justify-items: center;
-    background-color: #e1ebf6;
+    background-color: var(--button-secondary);
     color: var(--button-primary);
     border: none;
     border-radius: 4px;

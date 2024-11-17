@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Button } from '../Button/Button';
+import { Link } from 'react-router-dom';
 import './SwiperItem.css';
 
 export interface SwiperItemProps {
@@ -26,10 +27,12 @@ const SwiperItem: FC<SwiperItemProps> = (props) => {
             <div className='text_col'>
                 <h1>{Title}</h1>
                 <p>{SubTitle}</p>
-                <Button
-                    title="Contact Us"
-                    variant="secondary"
-                />
+                <Link to='/contact'>
+                    <Button
+                        title="Contact Us"
+                        variant="secondary"
+                    />
+                </Link>
             </div>
         </div>
     );
