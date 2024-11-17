@@ -8,23 +8,39 @@ const NavigationBar: FC = () => {
 
     const [openMenu, setOpenMenu] = useState(false);
 
+    const smallerScreen = window.innerWidth < 920;
+
     const toggleMenuBar = () => {
         setOpenMenu(!openMenu);
     };
 
     return (
         <nav>
-            <Link to='/' className='logo'>
+            {smallerScreen ?
+                <div className='logo' onClick={toggleMenuBar}>
+                    <Logo
+                        width={140}
+                        height={30}
+                    />
+                </div> :
+                <Link to='/' className='logo'>
+                    <Logo
+                        width={140}
+                        height={30}
+                    />
+                </Link>
+            }
+            {/* <Link to='/' className='logo' onClick={toggleMenuBar}>
                 <Logo
                     width={140}
                     height={30}
                 />
-            </Link>
-            <div className='menu' onClick={toggleMenuBar}>
+            </Link> */}
+            {/* <div className='menu' onClick={toggleMenuBar}>
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div> */}
             <ul className={openMenu ? 'open' : ''}>
                 <li>
                     <NavLink to='/'>Home</NavLink>

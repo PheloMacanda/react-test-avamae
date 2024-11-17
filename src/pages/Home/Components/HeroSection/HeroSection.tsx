@@ -1,44 +1,19 @@
-import { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
+import Loader from '../../../../components/Loader/Loader';
 import './HeroSection.css';
 import SwiperItem from '../../../../components/SwiperItem/SwiperItem';
-
-interface SwiperElement {
-    ImageUrl: string;
-    Title: string;
-    Subtitle: string;
-}
-interface APIResponse {
-    Details: SwiperElement[];
-}
+import { useCarouselData } from '../../../../services/api';
 
 export const HeroSection = () => {
 
-    const [data, setData] = useState<APIResponse | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const {
+        isLoading: isLoadingCarouselData,
+        data: carouselData,
+        error: carouselError,
+    } = useCarouselData();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('https://interview-assessment.api.avamae.co.uk/api/v1/home/banner-details');
-                if (!response.ok) {
-                    throw new Error('Network response not ok');
-                }
-                const jsonData = await response.json();
-                setData(jsonData);
-            } catch (error) {
-                setError((error as Error).message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
+    if (isLoadingCarouselData) return <div className='loader-component'><Loader variant='secondary' size={80} /></div>;
+    if (carouselError) return <p>Error: {carouselError}</p>;
 
     return (
         <Carousel
@@ -47,7 +22,7 @@ export const HeroSection = () => {
             showStatus={false}
             swipeable
         >
-            {data?.Details.map((swiperItem, index) => (
+            {carouselData?.Details.map((swiperItem, index) => (
                 <SwiperItem
                     key={index}
                     ImageUrl={swiperItem.ImageUrl}

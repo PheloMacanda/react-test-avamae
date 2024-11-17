@@ -15,7 +15,7 @@ export const LoginSection = () => {
                     Quisque iaculis hendrerit ex et tincidunt. Aenean eu magna ut nisi placerat
                     fringilla in sed diam.
                 </p>
-                <Link to='/login'>
+                <Link to='/login' className='login-btn'>
                     <Button
                         title='Log in'
                         variant='primary'
