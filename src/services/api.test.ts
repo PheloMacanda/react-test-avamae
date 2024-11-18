@@ -82,7 +82,7 @@ describe('useSubmitContactUsForm', () => {
       AddressLine2: 'Apt 4',
       CityTown: 'City',
       StateCounty: 'State',
-      Postcode: '12345',
+      Postcode: 'SWP1 3PA',
       Country: 'Country',
     },
   };
