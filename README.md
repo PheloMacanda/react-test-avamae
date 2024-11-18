@@ -30,6 +30,12 @@ Before you start, you need to make sure you have the following installed:
    # or
    yarn start
    ```
+4. **Run jest tests (Optional)**
+   ```bash
+   npm run test
+   # or
+   yarn test
+   ```
 
    Your app will automatically launch at `http://localhost:3000/`.
 
