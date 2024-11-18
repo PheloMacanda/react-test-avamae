@@ -4,6 +4,7 @@ nav {
     align-items: center;
     padding: 0 4rem 0 4rem;
     background-color: #ffffff;
+    border-bottom: 1px solid var(--lighter-gray);
 }
 
 .active {

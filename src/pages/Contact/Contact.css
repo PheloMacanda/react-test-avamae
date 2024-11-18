@@ -4,6 +4,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     padding: 0 0 1rem 1rem;
+    height: 120vh;
 }
 
 .loader-style {
@@ -168,6 +169,7 @@ textarea {
 .contact-image img {
     margin: auto;
     position: absolute;
+    top: -50px;
 }
 
 .submit-button {
@@ -198,11 +200,15 @@ textarea {
 
     .group-row {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
     }
 
     .contact-image img {
         display: none;
+    }
+
+    .grouped-items {
+        width: 100%;
     }
 }
