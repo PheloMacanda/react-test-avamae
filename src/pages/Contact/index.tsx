@@ -29,7 +29,7 @@ export const Contact: FC = () => {
 
             return !prevState;
         });
-        
+
     };
 
     const [formData, setFormData] = useState<ContactFormInput>({
@@ -234,8 +234,8 @@ export const Contact: FC = () => {
                             </div>
                             {showAddress &&
                                 <div className='address-component'>
-                                    <div className='group-row'>
-                                        <div className='form-group'>
+                                    <div className='address-line-group'>
+                                        <div className='address-form-group'>
                                             <label htmlFor='AddressLine1'>Address Line 1</label>
                                             <input
                                                 type='text'
@@ -246,7 +246,7 @@ export const Contact: FC = () => {
                                             />
                                             {errors.AddressLine1 && <p className="contact-form-error">{errors.AddressLine1}</p>}
                                         </div>
-                                        <div className='form-group'>
+                                        <div className='address-form-group'>
                                             <label htmlFor='addressLine2'>Address Line 2 -<span className='optional'> optional</span></label>
                                             <input
                                                 type='text'
@@ -257,49 +257,53 @@ export const Contact: FC = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className='group-row'>
-                                        <div className='form-group'>
-                                            <label htmlFor='cityTown'>City/Town</label>
-                                            <input
-                                                type='text'
-                                                id='CityTown'
-                                                name='CityTown'
-                                                value={formData.AddressDetails?.CityTown || ''}
-                                                onChange={handleAddressChange}
-                                            />
-                                            {errors.CityTown && <p className="contact-form-error">{errors.CityTown}</p>}
+                                    <div className='address-form-row-container'>
+                                        <div className='address-form-row'>
+                                            <div className='address-form-group'>
+                                                <label htmlFor='cityTown'>City/Town</label>
+                                                <input
+                                                    type='text'
+                                                    id='CityTown'
+                                                    name='CityTown'
+                                                    value={formData.AddressDetails?.CityTown || ''}
+                                                    onChange={handleAddressChange}
+                                                />
+                                                {errors.CityTown && <p className="contact-form-error">{errors.CityTown}</p>}
+                                            </div>
+                                            <div className='address-form-group'>
+                                                <label htmlFor='stateCountry'>State/Country</label>
+                                                <input
+                                                    type='text'
+                                                    id='StateCounty'
+                                                    name='StateCounty'
+                                                    value={formData.AddressDetails?.StateCounty || ''}
+                                                    onChange={handleAddressChange}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className='form-group'>
-                                            <label htmlFor='stateCountry'>State/Country</label>
-                                            <input
-                                                type='text'
-                                                id='StateCounty'
-                                                name='StateCounty'
-                                                value={formData.AddressDetails?.StateCounty || ''}
-                                                onChange={handleAddressChange}
-                                            />
-                                        </div>
-                                        <div className='form-group'>
-                                            <label htmlFor='postcode'>Postcode</label>
-                                            <input
-                                                type='text'
-                                                id='Postcode'
-                                                name='Postcode'
-                                                value={formData.AddressDetails?.Postcode || ''}
-                                                onChange={handleAddressChange}
-                                            />
-                                            {errors.Postcode && <p className="contact-form-error">{errors.Postcode}</p>}
-                                        </div>
-                                        <div className='form-group'>
-                                            <label htmlFor='country'>Country</label>
-                                            <input
-                                                type='text'
-                                                id='Country'
-                                                name='Country'
-                                                value={formData.AddressDetails?.Country || ''}
-                                                onChange={handleAddressChange}
-                                            />
-                                            {errors.Country && <p className="contact-form-error">{errors.Country}</p>}
+                                        <div className='address-form-row'>
+                                            <div className='address-form-group'>
+                                                <label htmlFor='postcode'>Postcode</label>
+                                                <input
+                                                    type='text'
+                                                    id='Postcode'
+                                                    name='Postcode'
+                                                    value={formData.AddressDetails?.Postcode || ''}
+                                                    onChange={handleAddressChange}
+                                                />
+                                                {errors.Postcode && <p className="contact-form-error">{errors.Postcode}</p>}
+                                            </div>
+                                            <div className='address-form-group'>
+                                                <label htmlFor='country'>Country</label>
+                                                <input
+                                                    type='text'
+                                                    id='Country'
+                                                    name='Country'
+                                                    value={formData.AddressDetails?.Country || ''}
+                                                    onChange={handleAddressChange}
+                                                />
+                                                {errors.Country && <p className="contact-form-error">{errors.Country}</p>}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

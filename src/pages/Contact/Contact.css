@@ -4,7 +4,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     padding: 0 0 1rem 1rem;
-    height: 120vh;
+    height: auto;
 }
 
 .loader-style {
@@ -149,6 +149,37 @@ textarea {
     padding-top: 0.4rem;
 }
 
+.address-component {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.address-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.address-line-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.address-form-row-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.address-form-row {
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+}
+
 .submit-button {
     display: flex;
     background-color: var(--button-primary);
@@ -200,15 +231,27 @@ textarea {
 
     .group-row {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
+        gap: 0;
     }
 
     .contact-image img {
         display: none;
     }
 
-    .grouped-items {
-        width: 100%;
+    .address-form-row .address-form-group {
+        flex: 1 1 calc(50% - 1rem);
+        min-width: 150px;
+    }
+
+    .address-line-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .address-form-row-container {
+        display: flex;
+        flex-direction: column;
     }
 }

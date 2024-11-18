@@ -62,7 +62,6 @@ nav .menu span {
 
 @media screen and (max-width: 825px) {
 
-    
     nav .logo {
         display: flex;
         width: 100%;
@@ -85,7 +84,7 @@ nav .menu span {
         display: none;
         flex-direction: column;
         width: 100%;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.5rem;
         row-gap: 1rem;
         transition: max-height 0.5s ease, opacity 0.5s ease;
     }
