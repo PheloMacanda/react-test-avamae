@@ -15,7 +15,7 @@ const NavigationBar: FC = () => {
     };
 
     return (
-        <nav>
+        <nav id='navigation-bar'>
             {smallerScreen ?
                 <div className='logo' onClick={toggleMenuBar}>
                     <Logo
@@ -30,28 +30,17 @@ const NavigationBar: FC = () => {
                     />
                 </Link>
             }
-            {/* <Link to='/' className='logo' onClick={toggleMenuBar}>
-                <Logo
-                    width={140}
-                    height={30}
-                />
-            </Link> */}
-            {/* <div className='menu' onClick={toggleMenuBar}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div> */}
             <ul className={openMenu ? 'open' : ''}>
-                <li>
+                <li id='link'>
                     <NavLink to='/'>Home</NavLink>
                 </li>
-                <li>
+                <li id='link'>
                     <NavLink to='/about'>About Us</NavLink>
                 </li>
-                <li>
+                <li id='link'>
                     <NavLink to='/contact'>Contact Us</NavLink>
                 </li>
-                <li>
+                <li id='link'>
                     <Link to='/login'>
                         <Button
                             title='Log in'

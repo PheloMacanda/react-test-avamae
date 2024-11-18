@@ -3,7 +3,7 @@ import { API_URL } from '../constants';
 import {
     APIResponse,
     ContactFormInput,
-    ErrorResponse
+    SubmitResponse
 } from './types';
 
 /*
@@ -58,8 +58,8 @@ export const useCarouselData = () => {
 
 export const useSubmitContactUsForm = (formData: ContactFormInput) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [responseData, setResponseData] = useState<any>();
-    const [error, setError] = useState<ErrorResponse | string>('');
+    const [responseData, setResponseData] = useState<SubmitResponse>();
+    const [error, setError] = useState<SubmitResponse | string>('');
 
     const submitForm = async (formData: ContactFormInput) => {
         setIsLoading(true);
@@ -73,10 +73,11 @@ export const useSubmitContactUsForm = (formData: ContactFormInput) => {
             });
 
             if (response.ok) {
-                setResponseData('Your message has been sent successfully!');
+                const responseData = await response.json() as SubmitResponse;
+                setResponseData(responseData);
                 // reset form data for next requests
             } else {
-                const errorResponse = await response.json() as ErrorResponse;
+                const errorResponse = await response.json() as SubmitResponse;
                 setError(errorResponse);
             }
         } catch (error) {
@@ -86,26 +87,10 @@ export const useSubmitContactUsForm = (formData: ContactFormInput) => {
             setIsLoading(false);
         }
 
-    }
-
-    useEffect(() => {
-        // Avoid memory leaks by setting isActive = true
-        let isActive = true;
-
-        const fetchData = async () => {
-            if (isActive) {
-                await submitForm(formData);
-            }
-        };
-        fetchData().catch(console.error);
-
-        return () => {
-            isActive = false;
-        };
-    }, [formData]);
-
+    };
 
     return {
+        submitForm,
         isLoading,
         responseData,
         error

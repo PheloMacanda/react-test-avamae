@@ -5,15 +5,17 @@ interface Props {
     variant: "primary" | "secondary";
     size: number;
     children?: any;
+    loaderText?: string;
 }
 
 const Loader: FC<Props> = ({
     variant,
     size,
-    children
+    children,
+    loaderText
 }) => {
     return (
-        <>
+        <div className="loader-container">
             {
             variant === "primary" ?
                 (
@@ -33,7 +35,8 @@ const Loader: FC<Props> = ({
                     </div>
                 )
             }
-        </>
+            {loaderText && <p className="loader-text">{loaderText}</p>}
+        </div>
     )
 }
 

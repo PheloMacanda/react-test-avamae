@@ -27,12 +27,12 @@ export type AddressDetails = {
     Country: string;
 };
 
-export type ErrorResponse = {
-    Status: string;
-    Error: Array<ErrorItem>;
-}
-
 type ErrorItem = {
     FieldName: string;
     MessageCode: string;
 };
+
+export type SubmitResponse = {
+    Status: string;
+    Errors: Array<ErrorItem>;
+}

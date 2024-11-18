@@ -1,5 +1,5 @@
 export const Login = () => {
     return (
-        <>Login</>
+        <div id="login-page">Login</div>
     )
 }
