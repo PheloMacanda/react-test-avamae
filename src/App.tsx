@@ -6,6 +6,7 @@ import { Login } from './pages/Login';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </Fragment>
   );
 }

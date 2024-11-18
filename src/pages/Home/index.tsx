@@ -2,8 +2,7 @@ import {
     HeroSection,
     ContentSection,
     LoginSection,
-    ParagraphsSection,
-    Footer
+    ParagraphsSection
 } from "./Components";
 
 export const Home = () => {
@@ -13,7 +12,6 @@ export const Home = () => {
             <ContentSection />
             <LoginSection />
             <ParagraphsSection />
-            <Footer />
         </div>
     )
 }

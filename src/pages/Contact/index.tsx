@@ -1,4 +1,4 @@
-import { FC, useState, FormEvent } from 'react';
+import { FC, useState, FormEvent, useMemo } from 'react';
 import ContactImg from '../../assets/images/Img_Contact.png';
 import ConfirmationAlertBox from '../../components/ConfirmationAlert/ConfirmationAlertBox';
 import Loader from '../../components/Loader/Loader';
@@ -11,19 +11,25 @@ export const Contact: FC = () => {
 
     const [showAddress, setShowAddress] = useState(false);
 
+    const emailErrorMessage = useMemo(() => new Error('Please enter a valid e-mail address'), []);
+
     const handleCheckboxChange = () => {
-        setShowAddress(!showAddress);
-        if (showAddress === true) {
-            setFormData({
-                ...formData,
-                bIncludeAddressDetails: true
-            });
-        } else {
-            setFormData({
-                ...formData,
-                bIncludeAddressDetails: false
-            });
-        }
+        setShowAddress((prevState) => {
+            if (prevState === false) {
+                setFormData({
+                    ...formData,
+                    bIncludeAddressDetails: true
+                });
+            } else {
+                setFormData({
+                    ...formData,
+                    bIncludeAddressDetails: false
+                });
+            }
+
+            return !prevState;
+        });
+        
     };
 
     const [formData, setFormData] = useState<ContactFormInput>({
@@ -49,14 +55,12 @@ export const Contact: FC = () => {
         });
     };
 
-
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
     const {
         submitForm,
         isLoading: isSubmitting,
-        responseData,
-        error
+        responseData
     } = useSubmitContactUsForm(formData);
 
     const validateForm = () => {
@@ -66,15 +70,21 @@ export const Contact: FC = () => {
         if (!formData.EmailAddress || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.EmailAddress)) {
             newErrors.EmailAddress = 'Valid email address is required';
         }
-        formData.PhoneNumbers.forEach((phone, index) => {
-            if (!phone) newErrors[`PhoneNumbers-${index}`] = 'Phone number is required';
-        });
+
         if (!formData.Message) newErrors.Message = 'Message is required';
 
-        if (formData.bIncludeAddressDetails && formData.AddressDetails) {
+        if (formData.bIncludeAddressDetails && showAddress) {
+
+            if (!formData.AddressDetails.AddressLine1) newErrors.AddressLine1 = 'Address Line 1 is required';
+
+            if (!formData.AddressDetails.CityTown) newErrors.CityTown = 'City/Town is required';
+
+            if (!formData.AddressDetails.Country) newErrors.Country = 'Country is required';
+
             if (!formData.AddressDetails.Postcode || !/^([A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2})$/.test(formData.AddressDetails.Postcode)) {
                 newErrors.Postcode = 'Valid UK postal code is required (e.g., W1A 1AA)';
             }
+
         }
 
         setErrors(newErrors);
@@ -157,7 +167,9 @@ export const Contact: FC = () => {
                                 title='Your message has been sent'
                                 subTitle='We will be in contact with you within 24 hours.'
                             /> :
-                            <div className='contact-form-error'>{error.toString()}</div>
+                            (responseData.Errors?.map((errorResponseMessage, index) =>
+                                <div className='contact-form-error' key={index}>{errorResponseMessage.FieldName + " " + errorResponseMessage.MessageCode}</div>
+                            ))
                         )
                         :
                         <form onSubmit={onSubmit}>
@@ -170,9 +182,8 @@ export const Contact: FC = () => {
                                         name='FullName'
                                         value={formData.FullName}
                                         onChange={handleChange}
-                                        required
                                     />
-                                    {errors.FullName && <p className="error">{errors.FullName}</p>}
+                                    {errors.FullName && <p className="contact-form-error">{errors.FullName}</p>}
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='email'>Email address</label>
@@ -182,9 +193,8 @@ export const Contact: FC = () => {
                                         name='EmailAddress'
                                         value={formData.EmailAddress}
                                         onChange={handleChange}
-                                        required
                                     />
-                                    {errors.EmailAddress && <p className="error">{errors.EmailAddress}</p>}
+                                    {errors.EmailAddress && <p className="contact-form-error">{emailErrorMessage.message}</p>}
                                 </div>
                             </div>
                             {formData.PhoneNumbers.map((inputValue, index) => (
@@ -197,7 +207,6 @@ export const Contact: FC = () => {
                                         value={inputValue}
                                         onChange={(e) => handlePhoneChange(e, index)}
                                     />
-                                    {errors[`PhoneNumbers-${index}`] && <p className="error">{errors[`PhoneNumbers-${index}`]}</p>}
                                 </div>
                             ))}
                             <button type='button' className='add-phone-button' onClick={handleAddPhoneNumber}>Add new phone number</button>
@@ -212,9 +221,8 @@ export const Contact: FC = () => {
                                     maxLength={500}
                                     value={formData.Message}
                                     onChange={handleChange}
-                                    required
                                 />
-                                {errors.Message && <p className="error">{errors.Message}</p>}
+                                {errors.Message && <p className="contact-form-error">{errors.Message}</p>}
                             </div>
                             <div className='checkbox-group'>
                                 <div className='check-container'
@@ -236,6 +244,7 @@ export const Contact: FC = () => {
                                                 value={formData.AddressDetails?.AddressLine1 || ''}
                                                 onChange={handleAddressChange}
                                             />
+                                            {errors.AddressLine1 && <p className="contact-form-error">{errors.AddressLine1}</p>}
                                         </div>
                                         <div className='form-group'>
                                             <label htmlFor='addressLine2'>Address Line 2 -<span className='optional'> optional</span></label>
@@ -258,6 +267,7 @@ export const Contact: FC = () => {
                                                 value={formData.AddressDetails?.CityTown || ''}
                                                 onChange={handleAddressChange}
                                             />
+                                            {errors.CityTown && <p className="contact-form-error">{errors.CityTown}</p>}
                                         </div>
                                         <div className='form-group'>
                                             <label htmlFor='stateCountry'>State/Country</label>
@@ -278,6 +288,7 @@ export const Contact: FC = () => {
                                                 value={formData.AddressDetails?.Postcode || ''}
                                                 onChange={handleAddressChange}
                                             />
+                                            {errors.Postcode && <p className="contact-form-error">{errors.Postcode}</p>}
                                         </div>
                                         <div className='form-group'>
                                             <label htmlFor='country'>Country</label>
@@ -288,6 +299,7 @@ export const Contact: FC = () => {
                                                 value={formData.AddressDetails?.Country || ''}
                                                 onChange={handleAddressChange}
                                             />
+                                            {errors.Country && <p className="contact-form-error">{errors.Country}</p>}
                                         </div>
                                     </div>
                                 </div>
@@ -297,7 +309,6 @@ export const Contact: FC = () => {
                             </button>
                         </form>)
                 }
-                {/* {error && <div className='contact-form-error'>{error.toString()}</div>} */}
             </div>
             <div className='contact-image'>
                 <img
